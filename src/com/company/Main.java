@@ -5,8 +5,9 @@ import java.util.*;
 import java.text.*;
 public class Main {
 
-    public static void main(String[] args) {
-	// write your code here
+    public static void main(String[] args) throws IOException {
+        FileWriter fw = new FileWriter("Imports");
+        PrintWriter output = new PrintWriter(fw);
         NumberFormat fmt = NumberFormat.getNumberInstance();
         fmt.setMinimumFractionDigits(2);
         fmt.setMaximumFractionDigits(2);
@@ -18,12 +19,16 @@ public class Main {
             System.out
                     .print("Please enter the name to whom the account belongs. (\"Exit\" to abort) ");
             name = kbReader.nextLine();
+
             if (!name.equalsIgnoreCase("EXIT")) {
                 System.out.print("Please enter the amount of the deposit. ");
                 double amount = kbReader.nextDouble();
                 System.out.println(" "); // gives an eye pleasing blank line
                 // between accounts
                 bankAccount theAccount = new bankAccount(name, amount);
+                output.println(name + " " + amount);
+                output.close();
+                fw.close();
                 iter.add(theAccount);
             }
         } while (!name.equalsIgnoreCase("EXIT"));
