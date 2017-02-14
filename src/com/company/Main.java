@@ -6,7 +6,7 @@ import java.text.*;
 public class Main {
 
     public static void main(String[] args) throws IOException {
-        FileWriter fw = new FileWriter("Imports", true);
+        FileWriter fw = new FileWriter("Imports");
         PrintWriter output = new PrintWriter(fw, true);
         Scanner reader = new Scanner(new File("Imports"));
         NumberFormat fmt = NumberFormat.getNumberInstance();
