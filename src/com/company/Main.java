@@ -8,7 +8,6 @@ public class Main {
     public static void main(String[] args) throws IOException {
         FileWriter fw = new FileWriter("Imports");
         PrintWriter output = new PrintWriter(fw, true);
-        Scanner reader = new Scanner(new File("Imports"));
         NumberFormat fmt = NumberFormat.getNumberInstance();
         fmt.setMinimumFractionDigits(2);
         fmt.setMaximumFractionDigits(2);
@@ -22,6 +21,7 @@ public class Main {
             name = kbReader.nextLine();
             if (name.equalsIgnoreCase("Debug"))
             {
+                Scanner reader = new Scanner(new File("Imports"));
                 while (reader.hasNext())
                 {
                     System.out.println(reader.nextLine());
